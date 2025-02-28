@@ -1,0 +1,704 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    overflow: hidden;
+}
+
+#crafting-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+#crafting-container.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.tablet-frame {
+    width: 1000px;
+    height: 700px;
+    background: #0f0f13;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tablet-screen {
+    width: 100%;
+    height: 100%;
+    background: #141419;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.crafting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: rgba(20, 20, 25, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.crafting-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.crafting-title i {
+    font-size: 24px;
+    color: #e50914;
+    text-shadow: 0 0 10px rgba(229, 9, 20, 0.3);
+}
+
+.crafting-title h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.crafting-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.crafting-close:hover {
+    background: rgba(229, 9, 20, 0.2);
+}
+
+.crafting-close i {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.crafting-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.crafting-categories {
+    width: 200px;
+    background: rgba(20, 20, 25, 0.8);
+    padding: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.category-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#categories-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.category-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.category-item.active {
+    background: rgba(229, 9, 20, 0.15);
+    border-left: 3px solid #e50914;
+}
+
+.category-item i {
+    font-size: 16px;
+    color: #e50914;
+}
+
+.category-item span {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.crafting-items {
+    width: 300px;
+    padding: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    overflow-y: auto;
+    background: rgba(20, 20, 25, 0.7);
+}
+
+.items-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.item-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.item-card.active {
+    background: rgba(229, 9, 20, 0.15);
+    border-left: 3px solid #e50914;
+}
+
+/* Green highlight for craftable items */
+.item-card.can-craft {
+    border-left: 3px solid #1DB954;
+    background: rgba(29, 185, 84, 0.05);
+}
+
+.item-card.can-craft:hover {
+    background: rgba(29, 185, 84, 0.1);
+}
+
+.item-card.can-craft.active {
+    background: rgba(29, 185, 84, 0.15);
+}
+
+.item-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.item-icon i {
+    font-size: 18px;
+    color: #e50914;
+}
+
+.can-craft .item-icon {
+    background: rgba(29, 185, 84, 0.1);
+}
+
+.can-craft .item-icon i {
+    color: #1DB954;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.item-category {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.crafting-details {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(20, 20, 25, 0.6);
+}
+
+.details-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.no-item-selected {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-item-selected p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.item-detail-card {
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.item-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.item-detail-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.item-detail-icon i {
+    font-size: 24px;
+    color: #e50914;
+}
+
+.item-detail-title h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.item-detail-title p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.item-detail-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title i {
+    font-size: 14px;
+    color: #e50914;
+}
+
+.ingredients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ingredient-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Green highlight for available ingredients */
+.ingredient-item.has-enough {
+    border-left: 3px solid #1DB954;
+    background: rgba(29, 185, 84, 0.05);
+}
+
+.ingredient-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ingredient-name i {
+    font-size: 14px;
+    color: #e50914;
+}
+
+.has-enough .ingredient-name i {
+    color: #1DB954;
+}
+
+.ingredient-name span {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.ingredient-amount {
+    font-size: 14px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.ingredient-amount.not-enough {
+    color: #e50914;
+    background: rgba(229, 9, 20, 0.1);
+}
+
+.has-enough .ingredient-amount {
+    color: #1DB954;
+    background: rgba(29, 185, 84, 0.1);
+}
+
+.craft-time {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.craft-time i {
+    font-size: 14px;
+    color: #e50914;
+}
+
+.craft-time span {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.blueprint-required {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.blueprint-required i {
+    font-size: 14px;
+    color: #e59500;
+}
+
+.blueprint-required span {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* Green highlight for available blueprint */
+.blueprint-required.has-blueprint {
+    border-left: 3px solid #1DB954;
+    background: rgba(29, 185, 84, 0.05);
+}
+
+.blueprint-required.has-blueprint i {
+    color: #1DB954;
+}
+
+.craft-button {
+    width: 100%;
+    padding: 14px;
+    background: #e50914;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(229, 9, 20, 0.2);
+}
+
+.craft-button:hover {
+    background: #c70812;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(229, 9, 20, 0.3);
+}
+
+.craft-button:disabled {
+    background: rgba(30, 30, 40, 0.3);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Green button for craftable items */
+.craft-button.can-craft {
+    background: #1DB954;
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+}
+
+.craft-button.can-craft:hover {
+    background: #19a34a;
+    box-shadow: 0 6px 20px rgba(29, 185, 84, 0.3);
+}
+
+.crafting-progress {
+    padding: 20px;
+    background: rgba(20, 20, 25, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: none;
+}
+
+.progress-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.progress-item {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e50914;
+    margin-bottom: 15px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #e50914, #1DB954);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.progress-time {
+    font-size: 14px;
+    color: #ffffff;
+    text-align: right;
+}
+
+.crafting-result {
+    padding: 20px;
+    background: rgba(20, 20, 25, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.result-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.result-icon.success {
+    background: rgba(29, 185, 84, 0.2);
+    box-shadow: 0 0 20px rgba(29, 185, 84, 0.3);
+}
+
+.result-icon.success i {
+    color: #1DB954;
+}
+
+.result-icon.failure {
+    background: rgba(229, 9, 20, 0.2);
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+}
+
+.result-icon.failure i {
+    color: #e50914;
+}
+
+.result-message {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.crafting-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(15, 15, 20, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2;
+}
+
+.watermark {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.15);
+    letter-spacing: 1px;
+}
+
+.skill-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-label {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.skill-progress-container {
+    width: 100px;
+    height: 6px;
+    background: rgba(30, 30, 40, 0.3);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #e50914, #1DB954);
+    width: 0%;
+}
+
+.skill-level {
+    font-size: 14px;
+    font-weight: 500;
+    color: #e50914;
+}
+
+.tablet-home-button {
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 2px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(30, 30, 40, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Tablet glow effect */
+.tablet-frame::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(135deg, rgba(229, 9, 20, 0.05), transparent, rgba(29, 185, 84, 0.05));
+    border-radius: 25px;
+    z-index: -1;
+    pointer-events: none;
+}
