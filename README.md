@@ -1,5 +1,7 @@
 # RaySist-Crafting
 
+# Support https://discord.gg/pNvGMgQ2vZ
+
 
 ![craft](https://i.ibb.co/KzXCBqfV/Craft-removebg.png)
 
