@@ -1,5 +1,13 @@
 # RaySist-Crafting
 
+<<<<<<< HEAD
+=======
+# Support https://discord.gg/pNvGMgQ2vZ
+
+
+![craft](https://i.ibb.co/KzXCBqfV/Craft-removebg.png)
+
+>>>>>>> c6eee8b2f542c02f20c45a6ee5388a85ef07b4fc
 A modern crafting system for FiveM QBCore framework.
 
 ## Features
