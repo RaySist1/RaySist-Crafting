@@ -35,6 +35,26 @@ QBCore.Functions.CreateCallback('RaySist-Crafting:server:HasBlueprint', function
     cb(hasBlueprint ~= nil)
 end)
 
+-- Check if player has required items
+QBCore.Functions.CreateCallback('RaySist-Crafting:server:HasRequiredItems', function(source, cb, requiredItems)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if not Player then return cb(false, "Player not found") end
+
+    local hasAllItems = true
+    local missingItems = ""
+
+    for _, itemData in pairs(requiredItems) do
+        local item = Player.Functions.GetItemByName(itemData.item)
+        if not item then
+            hasAllItems = false
+            if missingItems ~= "" then missingItems = missingItems .. ", " end
+            missingItems = missingItems .. itemData.label
+        end
+    end
+
+    cb(hasAllItems, missingItems)
+end)
+
 -- Start crafting process
 RegisterNetEvent('RaySist-Crafting:server:CraftItem', function(item)
     local src = source

@@ -1,63 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RaySist Crafting</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div id="crafting-container">
-        <div class="tablet-frame">
-            <div class="tablet-screen">
-                <div class="crafting-header">
-                    <div class="crafting-title">
-                        <i class="fas fa-hammer"></i>
-                        <h1>Crafting System</h1>
-                    </div>
-                    <div class="crafting-close" id="close-btn">
-                        <i class="fas fa-times"></i>
-                    </div>
-                </div>
-
-                <div class="crafting-content">
-                    <div class="crafting-categories">
-                        <div class="category-title">Categories</div>
-                        <div id="categories-list"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RaySist Crafting</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="crafting-container">
+            <div class="tablet-frame">
+                <div class="tablet-screen">
+                    <div class="crafting-header">
+                        <div class="crafting-title">
+                            <i class="fas fa-hammer"></i>
+                            <h1>Crafting System</h1>
+                        </div>
+                        <div class="crafting-close" id="close-btn">
+                            <i class="fas fa-times"></i>
+                        </div>
                     </div>
 
-                    <div class="crafting-items">
-                        <div class="items-title">Items</div>
-                        <div id="items-list"></div>
-                    </div>
+                    <div class="crafting-content">
+                        <div class="crafting-categories">
+                            <div class="category-title">Categories</div>
+                            <div id="categories-list"></div>
+                        </div>
 
-                    <div class="crafting-details">
-                        <div class="details-title">Item Details</div>
-                        <div id="item-details">
-                            <div class="no-item-selected">
-                                <p>Select an item to view details</p>
+                        <div class="crafting-items">
+                            <div class="items-title">Items</div>
+                            <div id="items-list"></div>
+                        </div>
+
+                        <div class="crafting-details">
+                            <div class="details-title">Item Details</div>
+                            <div id="item-details">
+                                <div class="no-item-selected">
+                                    <p>Select an item to view details</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="crafting-footer">
-                    <div class="watermark">Made By RaySist - 2025</div>
-                    <div class="skill-container" id="skill-container">
-                        <div class="skill-label">Crafting Skill:</div>
-                        <div class="skill-progress-container">
-                            <div class="skill-progress" id="skill-progress"></div>
+                    <div class="crafting-footer">
+                        <div class="watermark">Made By RaySist - 2025</div>
+                        <div class="skill-container" id="skill-container">
+                            <div class="skill-label">Crafting Skill:</div>
+                            <div class="skill-progress-container">
+                                <div
+                                    class="skill-progress"
+                                    id="skill-progress"
+                                ></div>
+                            </div>
+                            <div class="skill-level" id="skill-level">0</div>
                         </div>
-                        <div class="skill-level" id="skill-level">0</div>
                     </div>
-                </div>
 
-                <div class="tablet-home-button"></div>
+                    <div class="tablet-home-button"></div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>

@@ -1,8 +1,5 @@
 # RaySist-Crafting
 
-
-![craft](https://i.ibb.co/KzXCBqfV/Craft-removebg.png)
-
 A modern crafting system for FiveM QBCore framework.
 
 ## Features

@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -216,7 +216,7 @@ body {
 
 /* Green highlight for craftable items */
 .item-card.can-craft {
-    border-left: 3px solid #1DB954;
+    border-left: 3px solid #1db954;
     background: rgba(29, 185, 84, 0.05);
 }
 
@@ -248,7 +248,7 @@ body {
 }
 
 .can-craft .item-icon i {
-    color: #1DB954;
+    color: #1db954;
 }
 
 .item-info {
@@ -375,7 +375,7 @@ body {
 
 /* Green highlight for available ingredients */
 .ingredient-item.has-enough {
-    border-left: 3px solid #1DB954;
+    border-left: 3px solid #1db954;
     background: rgba(29, 185, 84, 0.05);
 }
 
@@ -391,7 +391,7 @@ body {
 }
 
 .has-enough .ingredient-name i {
-    color: #1DB954;
+    color: #1db954;
 }
 
 .ingredient-name span {
@@ -413,7 +413,7 @@ body {
 }
 
 .has-enough .ingredient-amount {
-    color: #1DB954;
+    color: #1db954;
     background: rgba(29, 185, 84, 0.1);
 }
 
@@ -461,12 +461,12 @@ body {
 
 /* Green highlight for available blueprint */
 .blueprint-required.has-blueprint {
-    border-left: 3px solid #1DB954;
+    border-left: 3px solid #1db954;
     background: rgba(29, 185, 84, 0.05);
 }
 
 .blueprint-required.has-blueprint i {
-    color: #1DB954;
+    color: #1db954;
 }
 
 .craft-button {
@@ -500,7 +500,7 @@ body {
 
 /* Green button for craftable items */
 .craft-button.can-craft {
-    background: #1DB954;
+    background: #1db954;
     box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
 }
 
@@ -541,7 +541,7 @@ body {
 
 .progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #e50914, #1DB954);
+    background: linear-gradient(90deg, #e50914, #1db954);
     width: 0%;
     transition: width 0.1s linear;
 }
@@ -577,7 +577,7 @@ body {
 }
 
 .result-icon.success i {
-    color: #1DB954;
+    color: #1db954;
 }
 
 .result-icon.failure {
@@ -634,7 +634,7 @@ body {
 
 .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, #e50914, #1DB954);
+    background: linear-gradient(90deg, #e50914, #1db954);
     width: 0%;
 }
 
@@ -691,13 +691,18 @@ body {
 
 /* Tablet glow effect */
 .tablet-frame::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -5px;
     left: -5px;
     right: -5px;
     bottom: -5px;
-    background: linear-gradient(135deg, rgba(229, 9, 20, 0.05), transparent, rgba(29, 185, 84, 0.05));
+    background: linear-gradient(
+        135deg,
+        rgba(229, 9, 20, 0.05),
+        transparent,
+        rgba(29, 185, 84, 0.05)
+    );
     border-radius: 25px;
     z-index: -1;
     pointer-events: none;
