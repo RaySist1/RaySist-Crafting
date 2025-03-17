@@ -1,7 +1,5 @@
 # RaySist-Crafting
 
-<<<<<<< HEAD
-=======
 # Support https://discord.gg/pNvGMgQ2vZ
 
 
