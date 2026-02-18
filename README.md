@@ -1,3 +1,10 @@
+# ⚠️ This Project Is Discontinued
+
+This repository is no longer maintained and will not receive updates or support.
+
+Please consider alternatives or forks.
+
+
 # RaySist-Crafting
 
 # Support https://discord.gg/pNvGMgQ2vZ
